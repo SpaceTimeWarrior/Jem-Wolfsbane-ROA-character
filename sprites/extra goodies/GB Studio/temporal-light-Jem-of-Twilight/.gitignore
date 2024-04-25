@@ -1,0 +1,14 @@
+build/*
+*.gb
+*.ihx
+*.map
+build/rom/game.ihx
+build/rom/game.gb
+build/rom/game.map
+build/rom/game.noi
+build/rom/game.sym
+build/rom/temporal light-jem of twilight.gb
+*.ihx
+*.map
+*.noi
+*.sym
