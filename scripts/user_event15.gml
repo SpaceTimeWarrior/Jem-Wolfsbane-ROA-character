@@ -27,7 +27,7 @@ Set parameters that are used by the CSS drawing code.
 #define CORE_css_draw
 
 // The number of alt costumes your char has, up to 32.
-num_alts = 7;
+num_alts = 18;
 
 // Whether or not to display a name for each alt.
 use_alt_names = true;
@@ -36,7 +36,7 @@ use_alt_names = true;
 // Type "noone" to make it always white.
 // (you can also change it to different values depending on the alt, by using
 // get_player_color(player))
-alt_ui_recolor = 0;
+alt_ui_recolor = noone;
 
 // The list of names for the alts, if enabled.
 
@@ -47,7 +47,19 @@ alt_names = [
 	"Kay neigh",
 	"Jem Wolfsbane-yellow",
 	"Jem Wolfsbane-GB",
-	"Jem Wolfsbane-3D"
+	"Jem Wolfsbane-3D",
+	"RoA Colors",
+	"Jem Wolfsbane-blue",
+	"Jem Wolfsbane-red",
+	"Jem Wolfsbane-black",
+	"Jem Wolfsbane-white",
+	"Jem Wolfsbane-pink",
+	"Jem Wolfsbane-abyss",
+	"Extra references",
+	"fallen down",
+	"megalomaniac",
+	"easiest enemy",
+	"not in smash"
 	];
 
 
@@ -174,6 +186,15 @@ so that things like page breaks can work properly.
 
 #define CORE_tips
 
+initTip("MAGIC BOOST SYSTEM");
+initWords("this shows how much magic jem currently has.");
+initWords("Jem uses magic energy to empower attacks. A full gauge means all attack damage you deal are multiplied by 4 whereas a empty gauge means no damage will be done for the attacks");
+initImage_ext(sprite_get("mana_gauge"), -4, fa_center, 1, 1, true, c_white,1, false,noone, noone, noone, noone);
+initWords("the image above shows the mana gauge this will change colors as the gauge is filled the more red the gauge is the more empty it is whereas the more blue it is the more full it is");
+initWords("you might be asking how do I gain this engergy. this is simple hit other players with non special attacks");
+initWords("you lose energy when you are parried, if you take damage or if you used a non neutral special attack below is a list of special rule(s) with special attacks");
+initWords("Dspecial:Temporal light-you take less burn damage on the first iteration if your multiplier is at least 3x. but afterword like most special attacks it puts it down to 0.05x but unlike the specials it is on first damage iteration rather than when it hits a player.");
+
 initTip("JAB: FireSword Jab");
 initWords("does two slices up and down as well as a fire at the tip");
 initImage_ext(sprite_get("jab"), -4, fa_center, 1, 1, true, c_white,1, false,noone, noone, noone, noone);
@@ -190,6 +211,14 @@ initTip("DATTACK: stone punch dash");
 initWords("while sliding jem uses earth magic to create a fist out of the ground");
 initImage_ext(sprite_get("dattack"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 
+initTip("DSPECIAL/FINAL SMASH: Temporal Light");
+initWords("create a orb of light that anyone caught inside other than the player is launched at 500% the player(activator) also takes damage at 200% and if the activator where to surpass 500% it is a automatic loss of a stock but is counted after the attack is finished) if the player where to use the final smash however, the damage to the activator is 50%. the damage radius is similar to claren's energy ball. this attack is to only be used as a last resort. in addition must do a different attack or will continually take damage as the light is torturing jem.");
+initImage_ext(sprite_get("dspecial"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
+initTip("DSTRONG: Fire Ring Compression");
+initWords("variation of FTILT where instead a ring is kicked up. if anyone gets close it grabs them compresses then flings them in the direction jem is facing");
+initImage_ext(sprite_get("dstrong"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
 initTip("DTILT: fireball whirl");
 initWords("jem does a spinning kick in which it grows a fireball that engulfs her(she is immune to this)");
 initImage_ext(sprite_get("dtilt"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
@@ -202,6 +231,10 @@ initTip("FSTRONG: kick and burn");
 initWords("During the charge, jem slides slightly. althewhile kicking the target and even if the kick misses she breaths fire creating a large blade of fire");
 initImage_ext(sprite_get("fstrong"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 
+initTip("FTILT: burning shockwave kick");
+initWords("kick up some walls of fire. nuff said");
+initImage_ext(sprite_get("ftilt"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
 initTip("NAIR: fire vortex")
 initWords("jem spins in the air creating a fire vortex underneath her. as well as creating electical whirls above the firey vortex. this also slows the decent.");
 initImage_ext(sprite_get("nair"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
@@ -210,13 +243,22 @@ initTip("NSPECIAL: Fire water ball");
 initWords("Jem casts out a ball of flaming water. note the ball is very bouncy. it is recomended to use this in the air or on top of a platform in which there is maximum effect");
 initImage_ext(sprite_get("nspecial"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 initImage_ext(sprite_get("water_proj"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
 initTip("UAIR: fire wind updraft");
 initWords("jem turns into a small ember and uses twilight magic mixed with some wind(although she isn't good at it) to create a artificial updraft. this creates a huge burst of speed that if makes contact can also send others flying. this attack when finished automatically cancels itself puts her into pratfall");
 initImage_ext(sprite_get("uair"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 
-initTip("DSPECIAL/FINAL SMASH: Temporal Light");
-initWords("create a orb of light that anyone caught inside other than the player is launched at 500% the player(activator) also takes damage at 200% and if the activator where to surpass 500% it is a automatic loss of a stock but is counted after the attack is finished) if the player where to use the final smash however, the damage to the activator is 50%. the damage radius is similar to claren's energy ball. this attack is to only be used as a last resort. in addition must do a different attack or will continually take damage as the light is torturing jem.");
-initImage_ext(sprite_get("dspecial"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+initTip("USPECIAL:smeaky fire");
+initWords("swap places with the farthest player to jem. then have two fists of fire rise from the ground. if jem is in the air it heightens the jump. this was learned from studying the criminal underworld of Luna.");
+initImage_ext(sprite_get("uspecial"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
+initTip("UTILT:fire jackhammer uppercut");
+initWords("create a orb of fire and launch the top hemisphere up at a high velocity");
+initImage_ext(sprite_get("utilt"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
+
+
+
 
 initTip("Jem's Lore");
 initWords_ext("Background", fa_center, c_gray, 0, 0);
@@ -292,6 +334,21 @@ in a Patch.
 
 
 // Recommended template for non-Sandbert characters (delete the other patches):
+initPatch("0.5","24 april, 2024");
+initHeader("added attacks");
+initSection("added Dstrong(variation of FTILT where instead a ring is kicked up. if anyone gets close it grabs them compresses then flings them in the direction jem is facing)");
+initSection("added Ftilt discriptor");
+initSection("changed order of attacks in munophone to not be in a random order");
+initHeader("Compatability additions");
+initSection("added pokemon colleseum compatability->added front/back sprites. changed the name to her pen name 'JEM TWILIGHT'");
+initSection("added kirby compatability->fire hat");
+initSection("added otto compatability->bobblehead and body");
+initPatch("0.4","23 april, 2024");
+initHeader("added attacks");
+initSection("added Uspecial(swap places with the farthest player from you then do a uppercut in the air)");
+initSection("added Utilt(create a orb of fire then launch the top hemisphere up at extreme speed)");
+initHeader("added MANA Gauge");
+initHeader("added air dodges");
 initPatch("0.3","16 april, 2024");
 initHeader("compatability update");
 initSection("updated munophone to munophone touch");
@@ -524,17 +581,43 @@ GIM_COLOR			textbox sprite index	is set to the value of the	spr_custom_trummel_c
 
 To use multiple gimmicks on a single page, MULTIPLY them together.
 */
-
+try{
 // Custom speaker setup - use 1, 2, 3, 4, ... for the index.
-SPK_SAND = initSpeaker(1, "Sandbert", sprite_get("_pho_example_speaker"));
-SPK_TWIN = initSpeaker(2, "Sandbert's evil twin", sprite_get("_pho_example_speaker"));
-
-initCodec(0); // this should just always be 0, because there are no codec gimmicks
-initCodecPage(SPK_TRUM, 0, 0, "wow is that sandbert with a phone");
-initCodecPage(SPK_ALTO, 4, 0, "UNBLOCK ME ON FACEBOOK, COWARD");
-initCodecPage(SPK_SAND, 0, GIM_COLOR * GIM_LAUGH_TRACK, "no"); // this page uses the custom speaker
-
-spr_custom_trummel_color = c_red;
+SPK_JEM = initSpeaker(1, "JEM", sprite_get("_pho_example_speaker"));
+SPK_JEM2 = initSpeaker(2, "DARK JEM", sprite_get("_pho_example_speaker"));
+spr_custom_trummel_color=c_purple;
+    initCodecPage(SPK_ALTO,2,0,"Jem Wolfsbane...don't think I heard of her...Found the wiki she is in...");
+    initCodecPage(SPK_ALTO,2,GIM_SKIP,"Jem Wolfsbane or Should I say Jem Lightbringer the former queen of Eather.");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"What do you mean former I still am the current queen");
+    initCodecPage(SPK_ALTO,0,0,"Let me continue, after you unwillingly faked your death your sister forcibly took the throne");
+    initCodecPage(SPK_ALTO,0,0,"and plunged Eather in darkness.your daughter is helping your husband build the temporal knife project you started.");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"Crystal is only 5 that shouldn't be allowed");
+    initCodecPage(SPK_ALTO,0,0,"I am going to break this to you since you left your universe. time goes by at a faster rate");
+    initCodecPage(SPK_ALTO,0,0,"... to be more specific you have been gone for the equivalent of 10 years");
+    initCodecPage(SPK_ALTO,10,0,"I would feel sorry for you If it were not for your down special.that is broken and unforgivable");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"down special? do you mean the temporal light spell. while it is powerful there is drawbacks to using");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"it. it isn't just use it and all your problems go away. the biggest is the energy requirement,without");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"serious injury and I could maybe only use it 3 times maximum without dying. in addition it severely");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"debuffs all my attacks.Is crystal still alive and fine?");
+    initCodecPage(SPK_ALTO,8,0,"I will say this she is still alive your husband renamed her to Light to confuse Brier");
+    initCodecPage(SPK_TRUM,7,0,"(wispering) is that really what happened and shouldn't we be respectful she is royalty?");
+    initCodecPage(SPK_ALTO,9,0,"(wispering)it is a half truth I don't actually know what happened to crystal I assumed from the wiki");
+    initCodecPage(SPK_ALTO,9,0,"(wispering)also jem dislikes it when people act not like themselves after learning about who she is.");
+    initCodecPage(SPK_ALTO,9,0,"also she technically isn't a royal anymore");
+    initCodecPage(SPK_TRUM,0,0,"(wispering) oh");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"you should know I can read minds and I do have very good hearing Alto is it what you where");
+    initCodecPage(SPK_JEM,0,GIM_COLOR * GIM_LAUGH_TRACK,"just thinking of was funny.To think I am in a video game");
+    initCodecPage(SPK_ALTO,0,0,"it is true, you are in a game called Rivals of Aether. and you originate from the series called");
+    initCodecPage(SPK_ALTO,2,0,"Temporal Light the wiki never defined it what is Eather");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"I feared this Eather wasn't always called that it was originally called mars before terraformation");
+    initCodecPage(SPK_ALTO,5,GIM_LAUGH_TRACK,"mars I didn't think that was the case you don't look green or alien.well at least no more than this world");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"well If I do you would be the first to know");
+    initCodecPage(SPK_TRUM,7,0,"what does she mean by that");
+    initCodecPage(SPK_ALTO,0,0,"she has limited ability to use teleportation magic.she can can teleport small objects or one large one. though her");
+    initCodecPage(SPK_ALTO,0,0,"preference is fire magic");
+}catch(e){
+	print_debug(string(e));
+}
 
 // Otto bobblehead.
 otto_bobblehead_sprite = sprite_get("_pho_example_bobble_head");
@@ -543,7 +626,7 @@ otto_bobblehead_sprite = sprite_get("_pho_example_bobble_head");
 otto_bobblebody_sprite = sprite_get("_pho_example_bobble_body");
 
 // Steve death message.
-steve_death_message = "Jem failed in her quest";
+steve_death_message = "You may not rest now there are monsters nearby...oh wait nevermind";
 
 // Link spear. (determines which spear your char will drop the first time)
 link_spear_drop = 5;
@@ -567,18 +650,18 @@ Spear IDs:
 // List of expressions and voice clips: https://pastebin.com/wsz22ZwJ
 
 initCodecPit();
-initCodecPagePit(SPK_PIT,	3,	0,	"Hey, it's Sandbert!");
-initCodecPagePit(SPK_PIT,	1,	6,	"...Isn't he a bit above my power level?");
-initCodecPagePit(SPK_PALU,	0,	3,	"Actually, this version of Sandbert has received a lot of nerfs to his damage and frame data.");
-initCodecPagePit(SPK_PALU,	0,	2,	"He can't even cancel his USpecial or end it early anymore!");
-initCodecPagePit(SPK_VIR,	5,	1,	"But yes, Pit, he IS still above your power level.");
-initCodecPagePit(SPK_PIT,	6,	0,	"Pssh, sounds like a pushover to me.");
-initCodecPagePit(SPK_PALU,	0,	4,	"Don't be so sure - despite the nerfs, his power and attack speed are still a force to be reckoned with.");
-initCodecPagePit(SPK_PALU,	0,	2,	"Also, he has the same MunoPhone as you do - so he'll be well-versed in his frame data and combos.");
-initCodecPagePit(SPK_VIR,	6,	4,	"Maybe you should turn on some Cheats for this fight, Pit?");
-initCodecPagePit(SPK_PALU,	0,	2,	"No, I'm sure he'll be fine.");
-initCodecPagePit(SPK_PALU,	2,	5,	"...As long as he avoids the Kamehameha.");
-initCodecPagePit(SPK_PIT,	4,	1,	"The WHAT?!?");
+//initCodecPagePit(SPK_PIT,	3,	0,	"Hey, it's Sandbert!");
+//initCodecPagePit(SPK_PIT,	1,	6,	"...Isn't he a bit above my power level?");
+//initCodecPagePit(SPK_PALU,	0,	3,	"Actually, this version of Sandbert has received a lot of nerfs to his damage and frame data.");
+//initCodecPagePit(SPK_PALU,	0,	2,	"He can't even cancel his USpecial or end it early anymore!");
+//initCodecPagePit(SPK_VIR,	5,	1,	"But yes, Pit, he IS still above your power level.");
+//initCodecPagePit(SPK_PIT,	6,	0,	"Pssh, sounds like a pushover to me.");
+//initCodecPagePit(SPK_PALU,	0,	4,	"Don't be so sure - despite the nerfs, his power and attack speed are still a force to be reckoned with.");
+//initCodecPagePit(SPK_PALU,	0,	2,	"Also, he has the same MunoPhone as you do - so he'll be well-versed in his frame data and combos.");
+//initCodecPagePit(SPK_VIR,	6,	4,	"Maybe you should turn on some Cheats for this fight, Pit?");
+//initCodecPagePit(SPK_PALU,	0,	2,	"No, I'm sure he'll be fine.");
+//initCodecPagePit(SPK_PALU,	2,	5,	"...As long as he avoids the Kamehameha.");
+//initCodecPagePit(SPK_PIT,	4,	1,	"The WHAT?!?");
 
 
 
@@ -738,7 +821,7 @@ var new_cdc = {
 array_push(trummel_codecs, new_cdc);
 
 #define initCodecPage(cd_speaker, cd_expression, cd_gimmick, cd_text)
-
+if "trummel_codecs" not in self initCodec(0);
 var new_page = {
 	speaker: cd_speaker,
 	expression: cd_expression,

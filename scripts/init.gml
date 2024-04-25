@@ -66,6 +66,7 @@ techroll_speed      = 10;       // 8    -  11
 //Sprites
 spr_nspecial_proj = sprite_get("water_proj");
 spr_example = sprite_get("example"); // sprites/example_stripX.png
+sprite_error = sprite_get("sprite_error");
 
 // SFX
 sfx_jem_wolf_blade_strike = sound_get("sfx_blade_strike");
@@ -183,6 +184,9 @@ TL_DAMAGE = 200;
 TL_FLAG=false;
 TL_COUNTER = -1;
 
+//magic system energy
+gauge_val = 1;//max 4 used as a boost for attacks
+
 //compatability
 //Amber interaction
 amber_herObj = noone;
@@ -206,6 +210,18 @@ fs_char_chosen_final_smash = "custom";
 fs_char_portrait_y = 96;
 fs_char_chosen_trigger = 'DSPECIAL'
 //AT_JEM_WOLF_FINAL_SMASH = 49;
+//kirby copy compatability
+TCG_Kirby_Copy=1
+//pkmn stadium compatability
+pkmn_stadium_front_img = sprite_get("pkmn_stadium_front");
+pkmn_stadium_back_img = sprite_get("pkmn_stadium_back");
+pkmn_stadium_name_override = "JEMTWLGHT"
+//otto compatability
+otto_bobblehead_sprite = sprite_get("_pho_example_bobble_head");
+otto_bobblehead_body_sprite = sprite_get("_pho_example_bobble_body");
+//trummel compatability
+trummelcodecneeded = false;
+trummelcodec_id = noone;
 
 
 // MunoPhone Touch code - don't touch
@@ -213,3 +229,4 @@ fs_char_chosen_trigger = 'DSPECIAL'
 
 muno_event_type = 0;
 user_event(14);
+

@@ -32,11 +32,13 @@ set_window_value(AT_JAB, 6, AG_WINDOW_ANIM_FRAME_START, 5);
 set_window_value(AT_JAB, 7, AG_WINDOW_LENGTH, 2);
 set_window_value(AT_JAB, 7, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_JAB, 7, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_JAB, 6, AG_WINDOW_ANIM_FRAME_START, 6);
+set_window_value(AT_JAB, 7, AG_WINDOW_ANIM_FRAME_START, 6);
 set_window_value(AT_JAB, 7, AG_WINDOW_SFX, asset_get("sfx_swipe_weak1"));
 //set_window_value(AT_JAB, 3, AG_WINDOW_HAS_WHIFFLAG, 1); //NOTE: if you make it a multi-hit jab, remove whifflag, since Rivals multi-step jabs do not have whifflag. single-hits like sandbert, elli, etc DO have whifflag
 
-set_num_hitboxes(AT_JAB, 1);
+set_num_hitboxes(AT_JAB, 4);
+
+set_hitbox_value(AT_JAB, 1, HG_MUNO_HITBOX_NAME, "Multihit 1");
 
 set_hitbox_value(AT_JAB, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_JAB, 1, HG_WINDOW, 2);
@@ -54,5 +56,38 @@ set_hitbox_value(AT_JAB, 1, HG_VISUAL_EFFECT_X_OFFSET, 32);
 set_hitbox_value(AT_JAB, 1, HG_VISUAL_EFFECT_Y_OFFSET, -10);
 set_hitbox_value(AT_JAB, 1, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_JAB, 1, HG_ANGLE_FLIPPER, 6);
+
+set_hitbox_value(AT_JAB, 2, HG_MUNO_HITBOX_NAME, "Multihit 2");
+
+set_hitbox_value(AT_JAB, 2, HG_PARENT_HITBOX, 1);
+set_hitbox_value(AT_JAB, 2, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_JAB, 2, HG_WINDOW, 5);
+set_hitbox_value(AT_JAB, 2, HG_WINDOW_CREATION_FRAME, 4);
+set_hitbox_value(AT_JAB, 2, HG_LIFETIME, 1);
+set_hitbox_value(AT_JAB, 2, HG_HITBOX_X, 20);
+set_hitbox_value(AT_JAB, 2, HG_HITBOX_Y, -35);
+set_hitbox_value(AT_JAB, 2, HG_HITBOX_GROUP, -1);
+
+set_hitbox_value(AT_JAB, 3, HG_MUNO_HITBOX_NAME, "Multihit 3");
+
+set_hitbox_value(AT_JAB, 3, HG_PARENT_HITBOX, 1);
+set_hitbox_value(AT_JAB, 3, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_JAB, 3, HG_WINDOW, 6);
+set_hitbox_value(AT_JAB, 3, HG_WINDOW_CREATION_FRAME, 2);
+set_hitbox_value(AT_JAB, 3, HG_LIFETIME, 1);
+set_hitbox_value(AT_JAB, 3, HG_HITBOX_X, 20);
+set_hitbox_value(AT_JAB, 3, HG_HITBOX_Y, -35);
+set_hitbox_value(AT_JAB, 3, HG_HITBOX_GROUP, -1);
+
+set_hitbox_value(AT_JAB, 4, HG_MUNO_HITBOX_NAME, "Multihit 4");
+
+set_hitbox_value(AT_JAB, 4, HG_PARENT_HITBOX, 1);
+set_hitbox_value(AT_JAB, 4, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_JAB, 4, HG_WINDOW, 7);
+set_hitbox_value(AT_JAB, 4, HG_WINDOW_CREATION_FRAME, 1);
+set_hitbox_value(AT_JAB, 4, HG_LIFETIME, 1);
+set_hitbox_value(AT_JAB, 4, HG_HITBOX_X, 20);
+set_hitbox_value(AT_JAB, 4, HG_HITBOX_Y, -35);
+set_hitbox_value(AT_JAB, 4, HG_HITBOX_GROUP, -1);
 
 set_attack_value(AT_JAB, AG_MUNO_ATTACK_MISC_ADD, "Does NOT ignore parry stun. (fix this if you make your own character)");

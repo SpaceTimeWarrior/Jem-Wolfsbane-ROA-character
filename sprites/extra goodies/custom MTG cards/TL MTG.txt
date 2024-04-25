@@ -1,0 +1,126 @@
+card formatting
+
+card supertype
+card name (nickname)
+casting cost
+rarity
+type
+power/toughness or loyalty
+rules text
+
+
+{w}= white mana {u} = blue mana {b} = black mana {r} = red mana {g} = green mana {c}=colorless mana {0-999} = any mana
+if two mana letters are next means either type
+if the letter p is before the mana letter means phyrexian mana
+{x}{y}{z}=variable mana
+{t}=tap
+{chaos}=insert chaos symbol
+{i}=start flavor text {/i} end flavor text
+
+
+Standard creature card type
+Ember Burnfeather, the Firey Companion
+{2}{g}{r}
+Rare
+Legendary Creature-humanoid phoenix
+2/2
+Partner with Jem,The Twilight Flame.(Can be your commander if you have a partner commander). Flying,
+{T}: Look at the top or bottom two cards of your library.You may put one of them into your hand and the other on the top or bottom of your library.
+{C}{T}: Create a 5/5 red Book Elemental creature token with flying and"Whenever this creature deals damage,it deals that much damage to its controller."Activate this ability only if you control a Jem Wolfsbane planeswalker.
+{i}"The books of magic shouldn’t be locked to you.I will find out why they are locked." - Ember{/i}
+
+
+double sided Creature card type
+Flare, The Lunar Mob Boss
+front {1}{wr}{wr} back {1}{wu}{wu}
+Mythic rare
+Legendary Creature-Human Royalty
+4/2
+common text: Pick a side when entering the battlefield.(remove this line)
+This card can be a partner to Jem, The Twilight Flame.
+if this is a commander or partner, you may have colors other than your commander's identity in your deck but take 3 damage per permanant that is on the battlefield that is not of your commander's identity this activates at the end of your end step.
+
+front text:{t}: until your next turn you may play creatures as if they had flash
+back text:{t}: put a +1/+1 counter on target creature, this may only be done once per turn
+
+Standard Creature card type
+Brier Wolfsbane, the shadow thorn
+{3}{g}{b}
+Rare
+Legendary Creature-humanoid wolfcat
+6/2
+Vigilance,Lifelink,double strike
+if this creature is blocked flip a coin if heads add defender to the blocker then until the end of the blocker's next turn but after damage is applied the blocker loses all abilities and cannot attack or block.
+{t}:Swap a creature's power and toughness if they had defender, remove it
+{1}{b}{t}:Amass plant zombie army 1 {i}if there is a green/black plant zombie army creature token under your control create it with 1 +1/+1 counter otherwise add 1 +1/+1 counter to the army.{/i}
+{i}I wouldn't trust him if I where you... you will call this off.-Brier to jem talking about the marriage to flare lightbringer{/i}
+
+
+Planeswalker card type
+Jem, The Twilight Flame (Jem Wolfsbane, Princess of Eather)
+{3}{pw}{pb}{pr}
+Mythic rare
+Legendary Planeswalker-Jem Wolfsbane
+5
+static ability: You may treat this planeswalker as a creature with hexproof. It is still a planeswalker. its power and toughness are 2*loyalty/loyalty. if this planeswalker where to be tapped its planeswalker abilities are not available. This planeswalker can be targeted by cards targeting creatures. If life was spent to cast this reduce its starting loyalty by that amount. This card can be your commander.
+Static Ability: Jem Wolfsbane can be treated as a creature with haste and hexproof.Its power is double its loyalty,and its toughness is equal to its loyalty.While tapped,it can't use its planeswalker abilities.It can be targeted by cards that target creatures.If life was spent to cast it, reduce its starting loyalty by that amount.This card can be your commander.
++X ability: Look at the top X cards of your or your opponent's library. you may rearrange them in any order. X is the number of creatures with power or toughness 5 or greater.
+-X ability: Deal Y damage to all opponent's creatures and planeswalkers. Then deal Y damage to all opponents. where Y=X-4 and x can be any value greater than or equal to 4
+
+Planeswalker card Type
+Light Lightbringer, Flame of Tommorow
+{2}{w}{u}{b}{r}{g}
+Mythic Rare
+Legendary Planeswalker-Light Lightbringer
+10
+Static ability:
+can be a companion to Jem, The Twilight Flame or Flare, The Lunar Mob Boss.This planeswalker can also be your commander.This planeswalker can be targeted as if it where a creature and is added onto the +1 ability next time it is used.This card can not be countered.
+this card is immune to the "Timeline Animalia TML64" plane effect. 
++1:This planeswalker becomes a X/X Legendary Human Wolfcat hybrid creature with "Haste, vigilance, reach, and trample" and "{t}, Deal X damage" where X is the current loyalty. this creature is still a planeswalker. The creature part and the planeswalker part are seperate targets when copying. if the creature loses abilities the planeswalker does not.
+-5:you gain 5 life or put 5 +1/+1 counters on target creature.
+-20:"Temporal Light"-destroy all permanants on all opponents battlefields, and deal 200 damage to one player. if a permanant where to be destroyed this way Exile it instead. this ability can be done at instant speed But only if you haven't used an ability your last turn.
+
+Standard creature type
+Garnet Wolfsbane, the Shadow King
+{4}{b}{r}
+Rare
+Legendary Creature-Humanoid shadowcat King
+1/6
+can be a partner to Pearlite wolfsbane, the scientist queen
+Vigilance,Haste,Deathtouch
+you may have a combat phase after the current player's combat phase
+{r}{b}{t}:Amass fire zombie army 1 {i}if there is a red/black fire zombie army creature token with "when it deals damage to a permanant deal the same damage to its controller" under your control create it with 1+1/+1 counter otherwise add 1 +1/+1 counter to the army.{/i}
+
+{i}"IS IT TRUE YOU HAVE FALLEN IN LOVE WITH A CRIMINAL."-Garnet yelling at Jem after finding out jem and flare's secret.{/i}
+
+Standard creature type
+Pearlite Wolfsbane, the Scientist Queen
+{3}{w}{u}{g}
+Rare
+Legendary Creature-Humanoid kitsune Queen
+6/1
+can be a partner to Garnet Wolfsbane, the Shadow King
+haste,hexproof,reach
+if this where to block a attacker change the target of the attacker to the attacker's controller.after that pearlite is not blocking but cannot until the next combat phase. then restart the declare attackers/blockers phase of combat with the attacking creature retargeted.
+{t}:proliferate, if any creature you control doesn't have a +1/+1 counter place one on the creature(s).
+
+{i}"garnet-...HUMANS CAN'T USE MAGIC  
+    pearlite-But they can store magic. I would love to experiment on one to test a hypothesis
+    jem's thoughts-I can't tell if mom is for me or against me on this.
+    -in the middle of a agressive conversation about flare after finding out jem is in love with him"
+
+Planechase card type
+Timeline Animalia TML64
+N/A
+N/A
+plane-Animalia
+when you Planeswalk to this plane or when a human creature enters the battlefield, all human creatures lose human creature type and its controller rolls a D20. Remove all damage from the creatures, and all abilities. The controller may chose 1 roll for all or individually but, must be said before the roll(s). any changes to power and toughness floors at 0/1
+1:Gain human type and regain all removed abilities. That creature(s) gains: "{t}: Target non-human creature can't attack this turn"
+2-10:Gain wolf type and gains: "{t}: deal 2 damage to target creature." and "When it is not your turn, this creature loses wolf type and gains human type."+3/-1 to power/toughness.
+5-15:Gain the cat type and gain: "{t}:prevent 2 damage from being applied to target creature." -1/+2 to power/toughness
+15-17:Gain the phoenix type, and gains flying and first strike. +3/-2 to power/toughness
+17-19:Gain the bunny type, and gains haste and vigilance. Set this creatures power and toughness to 1/1
+19, or 2-3: Gain the fire elemental type and gain double strike
+20: choose any 2 types from the above list
+
+{chaos} Reroll the D20 but for all creatures and replace human in the text above with the original creature type

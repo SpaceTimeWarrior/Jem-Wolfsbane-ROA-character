@@ -49,93 +49,19 @@ switch(attack){
 	case AT_NSPECIAL:
 		switch(window){
 			case 1: // startup
-				beam_juice = 30; // amt of energy "left" in the beam
-				beam_juice_max = 60 * 8;
-				beam_length = 0; // current length of beam
 				hsp = clamp(hsp, -2, 2);
 				vsp = min(vsp, 3);
 				can_fast_fall = false;
-				has_updated_beam_kb = false;
-				beam_clash_buddy = noone;
-				beam_clash_timer = 0;
-				beam_clash_timer_max = 120;
 				break;
 			case 2: // charge loop
-				if window_timer == 1{ // WARN: Possible repetition during hitpause. Consider using window_time_is(frame) https://rivalslib.com/assistant/function_library/attacks/window_time_is.html
-					sound_play(sfx_dbfz_kame_charge, false, noone, 1, 1 + beam_juice * 0.001);
-				}
-				if beam_juice > 180{
-					shake_camera(floor((beam_juice - 180) / 30), 1);
-				}
-				if special_down && beam_juice < beam_juice_max{
-					beam_juice++;
-				}
-				else{
-					window++;
-					window_timer = 0;
-					
-					var can_angle = false;
-					
-					switch((right_down - left_down) * spr_dir){
-						default:
-							beam_angle = 30;
-							break;
-						case 1:
-							beam_angle = 15;
-							break;
-						case -1:
-							beam_angle = 45;
-							break;
-					}
-					beam_angle *= (up_down - down_down) * can_angle;
-					beam_angle = (beam_angle + 360) % 360;
-					beam_angle = point_direction(0, 0, lengthdir_x(1, beam_angle) * spr_dir, lengthdir_y(1, beam_angle));
-				}
-				hsp = clamp(hsp, -2, 2);
-				vsp = min(vsp, 3);
-				can_fast_fall = false;
-				
-				if window_timer == phone_window_end || window_timer == phone_window_end - 3|| window_timer == phone_window_end - 6{ // WARN: Possible repetition during hitpause. Consider using window_time_is(frame) https://rivalslib.com/assistant/function_library/attacks/window_time_is.html
-					array_push(phone_dust_query, [x - 20 * spr_dir + sin(window_timer + 2) * 6 * spr_dir, y, beam_juice > 300 ? "dash_start" : (beam_juice > 180 ? "dash" : "walk"), spr_dir]);
-				}
 				break;
 			case 3: // post-charge
 				hsp *= 0.75;
 				vsp *= 0.75;
 				can_move = false;
 				can_fast_fall = false;
-				was_fully_charged = (beam_juice >= beam_juice_max);
-				if window_timer == phone_window_end{ // WARN: Possible repetition during hitpause. Consider using window_time_is(frame) https://rivalslib.com/assistant/function_library/attacks/window_time_is.html
-					spawn_nspecial_hitbox(1);
-					sound_play(sfx_dbfz_kame_fire);
-					array_push(phone_dust_query, [x, y, "dash_start", spr_dir]);
-					
-					var x1 = x + 72 * spr_dir;
-					var y1 = y - 24 + lengthdir_y(32, beam_angle);
-					
-					switch((abs(lengthdir_y(1, beam_angle)) > abs(lengthdir_y(1, 15))) * sign(lengthdir_y(1, beam_angle))){
-						case 1: // down
-							x1 = x + 74 * spr_dir;
-							y1 = y - 6;
-							break;
-						case -1: // up
-							x1 = x + 60 * spr_dir;
-							y1 = y - 72;
-							break;
-					}
-					
-					var h = spawn_hit_fx(x1, y1, vfx_nspecial_fire);
-					h.spr_dir = 1;
-					h.draw_angle = beam_angle;
-					h.depth = depth - 1;
-				}
 				break;
-			case 5: // beam loop
-				if beam_juice <= 0{
-					window++;
-					window_timer = 0;
-					spawn_nspecial_hitbox(2);
-				}
+			case 5: 
 				hsp = 0;
 				vsp = 0;
 				can_move = false;
@@ -146,40 +72,6 @@ switch(attack){
 				}
 				shake_camera(1, 1);
 			case 4: // beam overshoot
-				if beam_clash_buddy != noone{
-					beam_clash_logic();
-				}
-				else if !was_fully_charged && !hitpause && (was_parried || has_hit || place_meeting(x + lengthdir_x(beam_length + 32, beam_angle), y + lengthdir_y(beam_length, beam_angle), asset_get("par_block"))){
-					if beam_juice > 0{
-						beam_juice -= 10;
-					}
-				}
-				else if !hitpause{
-					if beam_juice > 0{
-						beam_length += 32 + 64 * was_fully_charged;
-						beam_juice -= 10;
-					}
-				}
-				if window != 6{
-					spawn_nspecial_hitbox(1);
-					
-					if beam_clash_buddy == noone{
-						var me = self;
-						with oPlayer if "has_goku_beam" in self && doing_goku_beam && abs((me.beam_angle + 180) % 360 - beam_angle % 360) < 5 && instance_exists(beam_newest_hbox){
-							var him = self;
-							with beam_newest_hbox if distance_to_object(me.beam_newest_hbox) < (32 + 64 * (me.was_fully_charged || him.was_fully_charged)){
-								me.beam_clash_buddy = him;
-								him.beam_clash_buddy = me;
-								with me sound_play(sfx_dbfz_hit_broken);
-								me.beam_juice = max(me.beam_juice, 30);
-								him.beam_juice = max(him.beam_juice, 30);
-								me.beam_clash_timer_max = max(me.beam_clash_timer_max, him.beam_clash_timer_max);
-								him.beam_clash_timer_max = max(me.beam_clash_timer_max, him.beam_clash_timer_max);
-							}
-						}
-					}
-				}
-				
 				hsp = 0;
 				vsp = 0;
 				can_move = false;
@@ -187,30 +79,6 @@ switch(attack){
 				shake_camera(4, 1);
 				break;
 			case 6: // last hit
-				if beam_clash_buddy != noone{
-					beam_clash_logic();
-				}
-				else if window_timer == phone_window_end{
-		
-					var x1 = x + 72 * spr_dir;
-					var y1 = y - 24 + lengthdir_y(32, beam_angle);
-					
-					switch((abs(lengthdir_y(1, beam_angle)) > abs(lengthdir_y(1, 15))) * sign(lengthdir_y(1, beam_angle))){
-						case 1: // down
-							x1 = x + 74 * spr_dir;
-							y1 = y - 6;
-							break;
-						case -1: // up
-							x1 = x + 60 * spr_dir;
-							y1 = y - 72;
-							break;
-					}
-					
-					var h = spawn_hit_fx(x1 + lengthdir_x(beam_length - 34, beam_angle), y1 + lengthdir_y(beam_length - 34, beam_angle), vfx_ftilt_destroy);
-					h.spr_dir = 1;
-					h.draw_angle = beam_angle;
-					h.depth = depth;
-				}
 				hsp = 0;
 				vsp = 0;
 				can_move = false;
@@ -268,6 +136,27 @@ switch(attack){
 				vsp = 0;
 				if window_timer == phone_window_end{
 					vsp = -5;
+				}
+				if window_timer == 1{
+					var playert =0;
+					for(pl=0;pl<5;pl++){
+						if(is_player_on(pl)){
+							playert+=1;
+						}	
+					}
+					print_debug("test"+string(playert));
+					if(playert<=1){
+
+					}else{
+						var pm = id;
+						var pmm = instance_furthest(x, y, object_index);
+						var tx = pmm.x;
+						var ty = pmm.y;
+						pmm.x = pm.x;
+						pmm.y = pm.y;
+						pm.x = tx;
+						pm.y = ty;
+					}
 				}
 				break;
 			case 2: // flight

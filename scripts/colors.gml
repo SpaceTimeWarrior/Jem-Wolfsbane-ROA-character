@@ -30,7 +30,7 @@ set_color_profile_slot_range( 6, 160, 101, 55 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 7 );
+set_num_palettes( 19 );
 
 // pearlite
 set_color_profile_slot( 1, 0, 255, 187, 0 ); //accessory
@@ -86,6 +86,114 @@ set_color_profile_slot( 6, 4, 255, 0, 0 ); //eyes
 set_color_profile_slot( 6, 5, 51, 51, 0 ); //outfit
 set_color_profile_slot( 6, 6, 99, 0, 70 ); //hair-fur
 
+// RoA colors
+set_color_profile_slot( 7, 0, 255, 255, 255 ); //accessory
+set_color_profile_slot( 7, 1, 255, 255, 255 ); //shield
+set_color_profile_slot( 7, 2, 255, 255, 255 ); //lightning
+set_color_profile_slot( 7, 3, 255, 255, 255 ); //fire
+set_color_profile_slot( 7, 4, 255, 255, 255 ); //eyes
+set_color_profile_slot( 7, 5, 255, 255, 255 ); //outfit
+set_color_profile_slot( 7, 6, 255, 255, 255 ); //hair-fur
+
+// jem-blue
+set_color_profile_slot( 8, 0, 0, 242, 255 ); //accessory
+set_color_profile_slot( 8, 1, 119, 0, 255 ); //shield
+set_color_profile_slot( 8, 2, 140, 0, 255 ); //lightning
+set_color_profile_slot( 8, 3, 0, 174, 255 ); //fire
+set_color_profile_slot( 8, 4, 0, 255, 162 ); //eyes
+set_color_profile_slot( 8, 5, 0, 251, 255 ); //outfit
+set_color_profile_slot( 8, 6, 0, 174, 255 ); //hair-fur
+
+// jem-red
+set_color_profile_slot( 9, 0, 237, 0, 140 ); //accessory
+set_color_profile_slot( 9, 1, 255, 0, 140 ); //shield
+set_color_profile_slot( 9, 2, 0, 255, 0 ); //lightning
+set_color_profile_slot( 9, 3, 0, 255, 0 ); //fire
+set_color_profile_slot( 9, 4, 132, 0, 255 ); //eyes
+set_color_profile_slot( 9, 5, 255, 106, 0 ); //outfit
+set_color_profile_slot( 9, 6, 92, 0, 58 ); //hair-fur
+
+// jem-black
+set_color_profile_slot( 10, 0, 0, 0, 0 ); //accessory
+set_color_profile_slot( 10, 1, 31, 0, 0 ); //shield
+set_color_profile_slot( 10, 2, 38, 17, 0 ); //lightning
+set_color_profile_slot( 10, 3, 41, 38, 26 ); //fire
+set_color_profile_slot( 10, 4, 255, 255, 255 ); //eyes
+set_color_profile_slot( 10, 5, 38, 29, 0 ); //outfit
+set_color_profile_slot( 10, 6, 54, 54, 54 ); //hair-fur
+
+// jem-white
+set_color_profile_slot( 11, 0, 255, 255, 255 ); //accessory
+set_color_profile_slot( 11, 1, 255, 214, 248 ); //shield
+set_color_profile_slot( 11, 2, 212, 244, 255 ); //lightning
+set_color_profile_slot( 11, 3, 171, 171, 171 ); //fire
+set_color_profile_slot( 11, 4, 255, 255, 255 ); //eyes
+set_color_profile_slot( 11, 5, 255, 244, 227 ); //outfit
+set_color_profile_slot( 11, 6, 255, 255, 255 ); //hair-fur
+
+// jem-pink
+set_color_profile_slot( 12, 0, 255, 0, 247 ); //accessory
+set_color_profile_slot( 12, 1, 199, 0, 76 ); //shield
+set_color_profile_slot( 12, 2, 255, 0, 157 ); //lightning
+set_color_profile_slot( 12, 3, 191, 0, 255 ); //fire
+set_color_profile_slot( 12, 4, 255, 0, 85 ); //eyes
+set_color_profile_slot( 12, 5, 255, 0, 238 ); //outfit
+set_color_profile_slot( 12, 6, 119, 0, 255 ); //hair-fur
+
+// jem-abyss
+set_color_profile_slot( 13, 0, 117, 88, 0 ); //accessory
+set_color_profile_slot( 13, 1, 13, 0, 59 ); //shield
+set_color_profile_slot( 13, 2, 225, 0, 255 ); //lightning
+set_color_profile_slot( 13, 3, 210, 48, 255 ); //fire
+set_color_profile_slot( 13, 4, 99, 0, 70 ); //eyes
+set_color_profile_slot( 13, 5, 38, 29, 0 ); //outfit
+set_color_profile_slot( 13, 6, 99, 0, 70 ); //hair-fur
+
+// extra references
+set_color_profile_slot( 14, 0, 0, 255, 0 ); //accessory
+set_color_profile_slot( 14, 1, 0, 255, 0 ); //shield
+set_color_profile_slot( 14, 2, 0, 255, 0 ); //lightning
+set_color_profile_slot( 14, 3, 0, 255, 0 ); //fire
+set_color_profile_slot( 14, 4, 0, 255, 0 ); //eyes
+set_color_profile_slot( 14, 5, 0, 255, 0 ); //outfit
+set_color_profile_slot( 14, 6, 0, 255, 0 ); //hair-fur
+
+// fallen down
+set_color_profile_slot( 15, 0, 255, 255, 255 ); //accessory
+set_color_profile_slot( 15, 1, 64, 0, 255 ); //shield
+set_color_profile_slot( 15, 2, 255, 72, 0 ); //lightning
+set_color_profile_slot( 15, 3, 255, 8, 0 ); //fire
+set_color_profile_slot( 15, 4, 255, 43, 85 ); //eyes
+set_color_profile_slot( 15, 5, 0, 255, 17 ); //outfit
+set_color_profile_slot( 15, 6, 255, 255, 255 ); //hair-fur
+
+// megalomaniac
+set_color_profile_slot( 16, 0, 255, 0, 0 ); //accessory
+set_color_profile_slot( 16, 1, 0, 0, 0 ); //shield
+set_color_profile_slot( 16, 2, 255, 0, 0 ); //lightning
+set_color_profile_slot( 16, 3, 255, 0, 0 ); //fire
+set_color_profile_slot( 16, 4, 255, 0, 0 ); //eyes
+set_color_profile_slot( 16, 5, 0, 255, 0 ); //outfit
+set_color_profile_slot( 16, 6, 255, 239, 207 ); //hair-fur
+
+// easiest enemy
+set_color_profile_slot( 17, 0, 255, 0, 0 ); //accessory
+set_color_profile_slot( 17, 1, 0, 255, 238 ); //shield
+set_color_profile_slot( 17, 2, 0, 102, 255 ); //lightning
+set_color_profile_slot( 17, 3, 255, 85, 0 ); //fire
+set_color_profile_slot( 17, 4, 0, 43, 255 ); //eyes
+set_color_profile_slot( 17, 5, 0, 153, 255 ); //outfit
+set_color_profile_slot( 17, 6, 255, 255, 255 ); //hair-fur
+
+// not in smash
+set_color_profile_slot( 18, 0, 127, 0, 186 ); //accessory
+set_color_profile_slot( 18, 1, 76, 0, 255 ); //shield
+set_color_profile_slot( 18, 2, 189, 38, 133 ); //lightning
+set_color_profile_slot( 18, 3, 92, 0, 122 ); //fire
+set_color_profile_slot( 18, 4, 198, 92, 255 ); //eyes
+set_color_profile_slot( 18, 5, 126, 0, 168 ); //outfit
+set_color_profile_slot( 18, 6, 255, 233, 209 ); //hair-fur
+
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
 === BEGIN JSON PALETTE ===
@@ -93,4 +201,4 @@ set_color_profile_slot( 6, 6, 99, 0, 70 ); //hair-fur
 === END JSON PALETTE ===
 */
 
-//https://cl-9a.github.io/RoAColorsGmlHelper/
+//cl-9a.github.io/RoAColorsGmlHelper/
