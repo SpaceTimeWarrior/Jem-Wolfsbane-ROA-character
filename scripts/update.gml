@@ -28,9 +28,11 @@ if(TL_COUNTER ==-1){
 			take_damage(player,player,TL_DAMAGE);
 			gauge_val=0.5;
 			if(get_player_damage( player )>=500){
-				x=-1000;
-				y=-1000;
+				//x=-1000;
+				//y=-1000;
+				
 				attack=AT_JAB;
+				user_event(6);
 			}
 			TL_COUNTER=-1;
 			TL_FLAG=false;
@@ -86,6 +88,8 @@ if (amber_startHug == true){
 }
 //final smash compatability
 if (phone_cheats[cheat_perma_final_smash]) {fs_charge = 200;}
+if (phone_cheats[cheat_maximum_magic]) {gauge_val = 4;}
+if (phone_cheats[cheat_magic_double]) {TL_MBBool = true;}else{TL_MBBOOL = false;}
 //kirby copy compatability
 TCG_Kirby_Copy=1
 //trummel cpmpatability

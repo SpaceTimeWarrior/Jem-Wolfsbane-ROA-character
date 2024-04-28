@@ -68,6 +68,8 @@ spr_nspecial_proj = sprite_get("water_proj");
 spr_example = sprite_get("example"); // sprites/example_stripX.png
 sprite_error = sprite_get("sprite_error");
 
+
+
 // SFX
 sfx_jem_wolf_blade_strike = sound_get("sfx_blade_strike");
 sfx_jem_wolf_charge = sound_get("sfx_charge");
@@ -183,10 +185,13 @@ bubble_y = 8;
 TL_DAMAGE = 200;
 TL_FLAG=false;
 TL_COUNTER = -1;
+dair_counter =array_create(0,0);
+TL_MBBool = false;
+pain_damage=false;
 
 //magic system energy
 gauge_val = 1;//max 4 used as a boost for attacks
-
+TL_burning=false;
 //compatability
 //Amber interaction
 amber_herObj = noone;
@@ -209,9 +214,11 @@ plushForAmber = sprite_get("plush");
 fs_char_chosen_final_smash = "custom";
 fs_char_portrait_y = 96;
 fs_char_chosen_trigger = 'DSPECIAL'
+fs_charge = 0;
 //AT_JEM_WOLF_FINAL_SMASH = 49;
 //kirby copy compatability
 TCG_Kirby_Copy=1
+kirbyability=1
 //pkmn stadium compatability
 pkmn_stadium_front_img = sprite_get("pkmn_stadium_front");
 pkmn_stadium_back_img = sprite_get("pkmn_stadium_back");
@@ -222,7 +229,86 @@ otto_bobblehead_body_sprite = sprite_get("_pho_example_bobble_body");
 //trummel compatability
 trummelcodecneeded = false;
 trummelcodec_id = noone;
+//
+title_counter=0;
+tt_cntr=0;
+Hikaru_Title = "";
+Hikaru_Title2 = Hikaru_Title;
+if(tt_cntr<500){
+switch(title_counter){
+	case 0:
+	Hikaru_Title = "Lunar Princess";
+	Hikaru_Title2 = Hikaru_Title;
+	break;
+	case 1:
+	Hikaru_Title = "Multiverse Defender"
+	Hikaru_Title2 = Hikaru_Title;
+	break;
+	case 2:
+	Hikaru_Title = "Twilight Flame"
+	Hikaru_Title2 = Hikaru_Title;
+	break;
+	case 3:
+	Hikaru_Title = "wolfcat kitsune"
+	Hikaru_Title2 = Hikaru_Title;
+	break;
+	case 4:
+	Hikaru_Title = "Etherian Queen"
+	Hikaru_Title2 = Hikaru_Title;
+	break;
+	default:
+	Hikaru_Title = "ERROR"
+	Hikaru_Title2 = Hikaru_Title;
+	break;
+}
+}else{
+	tt_cntr = 500;
+	hikaru_title = "bloodthirsty"
+	Hikaru_Title2 = Hikaru_Title;
+}
+//Walle compatability
+walle_taunt_sound = sound_get("Twilight_flame");
+walle_taunt_type = 1;
+//feri costume
+feri_costume = sprite_get("feri_costume_jem");
+//abyss hime compatability
+abyssHime_deathspr = sprite_get("death");
+//dracula compatability
+dracula_portrait = sprite_get("_pho_example_speaker_dracula");
+dracula_portrait2 = dracula_portrait; 
+dracula_portrait3 = dracula_portrait; 
+var page = 0;
 
+//Page 0
+dracula_speaker[page] = 0;
+dracula_text[page] = "Who doth enter my domain...I can see you so stop your hiding. I can tell you are a strong mage to conceil your identity.What is thine reason for your trespass";
+page++;
+
+//Page 1
+dracula_speaker[page] = 1;
+dracula_text[page] = "I am Jem Wolfsbane and I am lost";
+page++;
+
+dracula_speaker[page] = 0;
+dracula_text[page] = "Yet somehow thou entered my domain...wait is that a deathripper pin how did you get one speak!";
+page++;
+
+dracula_speaker[page] = 1;
+dracula_text[page] = "I got it from my friend pyre deathripper.";
+page++;
+
+dracula_speaker[page] = 0;
+dracula_text[page] = "You should know the deathripper tribe has long since tried to end my existance. since you are a friend to them. [glass]I will make you a example, have at thee[shake]";
+page++;
+//miiverse compatability
+miiverse_post = sprite_get("mv");
+//soulbound conflict compatability
+battle_text  = "* Jem the multiverse defender draws near";
+arena_title = "* Jem Wolfsbane the multiverse defender";
+// TCO Support
+tcoart = sprite_get("TCO");
+//so sorry compatability
+sorry_art = sprite_get("sorry");
 
 // MunoPhone Touch code - don't touch
 // should be at BOTTOM of file, but above any #define lines

@@ -25,6 +25,11 @@ switch(attack){
 	break;
 	case AT_FSPECIAL:
 	dama=6;
+		take_damage(player,hit_player_obj.player,-1*ceil(dama*(gauge_val+(TL_MBBOOL*gauge_val))));
+	if (is_laststock()) {
+		take_damage(player,hit_player_obj.player,-1*ceil(dama*(gauge_val+(TL_MBBOOL*gauge_val))));
+	}
+	var plz = instance_create(hit_player_obj.x,hit_player_obj.y,"obj_article_platform");
 	break;
 	case AT_FSTRONG:
 	dama=10;
@@ -52,6 +57,7 @@ switch(attack){
 	break;
 	case AT_USTRONG:
 	dama=10;
+	instance_create(hit_player_obj.x+random_func(0,251,true)-125,hit_player_obj.y+random_func(1,251,true)-125,"obj_article2");
 	break;
 	case AT_UTILT:
 	dama=10;
@@ -60,7 +66,7 @@ switch(attack){
 	dama=5;
 	break;
 }
-take_damage(hit_player_obj.player, player, ceil((dama*gauge_val)-dama) );
+take_damage(hit_player_obj.player, player, ceil((dama*(gauge_val+(TL_MBBOOL*gauge_val)))-dama) );
 if(attack==AT_USPECIAL||attack==AT_FSPECIAL){
 	gauge_val=0.05;
 }else if(attack == AT_NSPECIAL){

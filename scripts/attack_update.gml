@@ -9,9 +9,41 @@ switch(attack){
 		break;
 
 }
-	
-
-
+	/*
+for(var itys = 0;itys<array_length(dair_counter);itys++){
+	print_debug("tst");
+	if(!instance_exists(dair_counter[itys])){
+		//array_delete(dair_counter,itys)//couldn't be this simple
+		/*
+		var iitys = array_length(dair_counter)-1;
+		if(itys!=iitys){
+			var tmp = dair_counter[iitys];
+			dair_counter[iitys]=dair_counter[itys];
+			dair_counter[itys]=tmp;
+		}
+		//array_pop(dair_counter);//no pop but push? this is very odd
+		//array_shift(dair_counter);//this is going to be destructivly messy
+		var iitys = array_length(dair_counter)-1;
+		print_debug("tst");
+		if(itys!=iitys){
+			var tmp = dair_counter[iitys];
+			dair_counter[iitys]=dair_counter[itys];
+			dair_counter[itys]=tmp;//swap with last
+			print_debug(string(dair_counter));
+			print_debug("");
+			array_copy(dair_counter,0,dair_counter,0,iitys-1)
+			print_debug(string(dair_counter));
+		}
+		itys--;
+/*	}else{
+		//print_debug(dair_counter[itys].x);
+		//print_debug(dair_counter[itys].y);
+		if(dair_counter[itys].y<0||dair_counter[itys].y>10000){
+			instance_destroy(dair_counter[itys]);
+		}
+	}
+}
+*/
 // per-attack logic
 
 switch(attack){
@@ -92,9 +124,14 @@ switch(attack){
 				break;
 		}
 	break;
-	
-	
-	
+	/*
+	case AT_DAIR:
+	print_debug(string(dair_counter));
+	if(window = 2&&window_timer = 0&&array_length(dair_counter)<2){
+		var tmp = instance_create(x,y,"obj_article_solid")
+		array_push(dair_counter,tmp);
+	}
+	break;*/
 	case AT_FSPECIAL:
 		can_move = false;
 		can_fast_fall = false;
@@ -107,6 +144,7 @@ switch(attack){
 				}
 				break;
 			case 2:
+				
 				vsp = 0;
 				can_wall_jump = true;
 				if (special_pressed){

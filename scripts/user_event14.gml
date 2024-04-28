@@ -344,10 +344,13 @@ initWords("MunoPhone Touch is the second version of a general-use utility releas
 initWords("It provides bonus features in Practice Mode, useful behind-the-scenes shortcuts for common coding tasks, and a more balanced version of Sandbert to use as a character base.");
 initHeader("Developed by");
 initSection("Muno - byMuno.com");
+initHeader("Modified by");
+initSection("TimeSpaceWarrior (in-game-jem wolfsbane)")
 initHeader("SFX from");
-initSection("Animal Crossing: New Horizons");
+initSection("original phone SFX(removed)-Animal Crossing: New Horizons");
+initSection("New SFX-Temporal Light");
 initHeader("Firmware");
-initSection("v" + string(phone.firmware));
+initSection("custom based on V" + string(phone.firmware));
 
 #define initTip(tip_name, zeroeth)
 

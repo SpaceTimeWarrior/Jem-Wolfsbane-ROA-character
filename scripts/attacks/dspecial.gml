@@ -43,9 +43,9 @@ set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_WINDOW, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_WINDOW_CREATION_FRAME, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_LIFETIME, 51);
-set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_Y, -30);
-set_hitbox_value(AT_DSPECIAL, 1, HG_WIDTH, 500);
-set_hitbox_value(AT_DSPECIAL, 1, HG_HEIGHT, 500);
+set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_Y, -14);
+set_hitbox_value(AT_DSPECIAL, 1, HG_WIDTH, 133);
+set_hitbox_value(AT_DSPECIAL, 1, HG_HEIGHT, 128);
 set_hitbox_value(AT_DSPECIAL, 1, HG_PRIORITY, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_DAMAGE, 500);
 set_hitbox_value(AT_DSPECIAL, 1, HG_SHAPE, 0);
@@ -57,11 +57,12 @@ set_hitbox_value(AT_DSPECIAL, 1, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
 set_hitbox_value(AT_DSPECIAL, 1, HG_ANGLE_FLIPPER, 6);
 set_hitbox_value(AT_DSPECIAL, 1, HG_TECHABLE, 1);
 
+set_hitbox_value(AT_DTILT, 2, HG_PARENT_HITBOX, 1);
+set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_Y, -14);
+set_hitbox_value(AT_DSPECIAL, 1, HG_WIDTH, 500);
+set_hitbox_value(AT_DSPECIAL, 1, HG_HEIGHT, 500);
 
 
-set_attack_value(AT_DSPECIAL, AG_MUNO_ATTACK_MISC_ADD, "Jump cancel starting on frame " + string(get_window_value(AT_DSPECIAL, 1, AG_WINDOW_LENGTH) + 1) + " unless parried.");
+set_attack_value(AT_DSPECIAL, AG_MUNO_ATTACK_MISC_ADD, "Jump cancel starting on frame " + string(get_window_value(AT_DSPECIAL, 1, AG_WINDOW_LENGTH) + 1) + " unless parried. recoil 200% damage");
 
-//This is why you should place these at the BOTTOM of the attack file - if placed at the TOP, it wouldn't be able to reference window length, or etc, because it would not have been defined yet.
 
-//Referencing data like this, instead of just typing the number 4 manually, is good because if you patch things, it'll update the description automatically.
-//Eg if I made DSpecial's startup 1 frame faster, the jump-cancel description would change to reflect the new speed.

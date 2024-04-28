@@ -204,7 +204,7 @@ initWords("create a circle of fireballs that grow into a large one than go back 
 initImage_ext(sprite_get("bair"), -4, fa_center, 1, 1, true, c_white,1, false,noone, noone, noone, noone);
 
 initTip("DAIR: heat crash");
-initWords("jem transforms into a flaming spiral and summons fireballs as she falls(fireballs are unavailable)");
+initWords("jem transforms into a flaming spiral and summons fireballs as she falls(fireballs are unavailable, this was abandoned, tried via hitbox grid,and by articles(seriously who adda a array push but no way to undo it.also the documentation is so out of date for GM functions it isn't available))");
 initImage_ext(sprite_get("dair"), -4, fa_center, 1, 1, true, c_white,1, false,noone, noone, noone, noone);
 
 initTip("DATTACK: stone punch dash");
@@ -226,6 +226,11 @@ initImage_ext(sprite_get("dtilt"), -4, fa_center, 1, 1, true, c_white, 1, false,
 initTip("FAIR: firesword flury");
 initWords("summersault in the air swinging her sword as she rotates");
 initImage_ext(sprite_get("fair"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
+initTip("FSPECIAL:vampiric flame");
+initWords("slide into a enemy on contact it creates a volcanic platform that damages those who make contact every 1/4 second. the platform lasts between 2 and 4 seconds. in addition jem heals by any damage delt to the enenies");
+initImage_ext(sprite_get("fspecial"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+initImage_ext(sprite_get("plat"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 
 initTip("FSTRONG: kick and burn");
 initWords("During the charge, jem slides slightly. althewhile kicking the target and even if the kick misses she breaths fire creating a large blade of fire");
@@ -252,10 +257,14 @@ initTip("USPECIAL:smeaky fire");
 initWords("swap places with the farthest player to jem. then have two fists of fire rise from the ground. if jem is in the air it heightens the jump. this was learned from studying the criminal underworld of Luna.");
 initImage_ext(sprite_get("uspecial"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 
+initTip("USTRONG: Firey eruption");
+initWords("extension of utilt where after launching the top off create a spike of fire. any that colide with this creates another eruption somewhere near them. collisions with subsequent colisions do not create more eruptions. these secondary eruptions last at most 1 second");
+initImage_ext(sprite_get("ustrong"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+initImage_ext(sprite_get("ustrong_art"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
+
 initTip("UTILT:fire jackhammer uppercut");
 initWords("create a orb of fire and launch the top hemisphere up at a high velocity");
 initImage_ext(sprite_get("utilt"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
-
 
 
 
@@ -334,6 +343,19 @@ in a Patch.
 
 
 // Recommended template for non-Sandbert characters (delete the other patches):
+initPatch("0.7","27 april,2024");
+initHeader("added compatability");
+initSection("added Hikaru compatablity:the title changes depending on the number of attacks jem has taken... if under 500 hits it uses mod 5 0=Lunar Princess, Hikaru,1=Multiverse Defender Hikaru,2=Twilight Flame, Hikaru , 3=wolfcat kitsune, Hikaru 4=Etherian Queen, Hikaru, default= ERROR, Hikaru ,if 500+ bloodthirsty, Hikaru");
+initSection("added walle compatability:taunt song is jem's battle theme Twilight Flame");
+initHeader("added attack");
+initSection("added UStrong: Firey eruption(extension of utilt where after launching the top off create a spike of fire. any that colide with this creates another eruption somewhere near them. collisions with subsequent colisions do not create more eruptions. these secondary eruptions last at most 1 second)");
+initPatch("0.6","27 april,2024");
+initHeader("munophone modifications");
+initSection("changed the phone sprite");
+initSection("decreased the size of the app icon");
+initSection("changed the sound effects to my game's sound effects");
+initHeader("added attacks");
+initSection("added FSpecial(slide into a enemy on contact it creates a volcanic platform that damages those who make contact every 1/4 second. the platform lasts between 2 and 4 seconds. in addition jem heals by any damage dealt to the enenies)")
 initPatch("0.5","24 april, 2024");
 initHeader("added attacks");
 initSection("added Dstrong(variation of FTILT where instead a ring is kicked up. if anyone gets close it grabs them compresses then flings them in the direction jem is facing)");
@@ -433,7 +455,9 @@ zero".
 //CHEAT_FLY		= initCheat("Fly", [0, 1], ["Off", "On"], "Take flight. So balanced
 //
 //(hold shield to not fly)");
-cheat_perma_final_smash = initCheat("Always have Final Smash", [0, 1], ["Off", "On"], "Final Smash is always charged.");
+cheat_perma_final_smash = initCheat("Infinate Final Smash", [0, 1], ["Off", "On"], "Final Smash is always charged.");
+cheat_maximum_magic = initCheat("infinate magic", [0, 1], ["Off", "On"], "Magic boost gauge is always filled");
+cheat_magic_double = initCheat("double magic", [0, 1], ["Off", "On"], "doubles the magic damage from the Magic boost");
 
 
 

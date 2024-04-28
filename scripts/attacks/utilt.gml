@@ -55,5 +55,3 @@ set_hitbox_value(AT_UTILT, 2, HG_HITPAUSE_SCALING, .35);
 set_hitbox_value(AT_UTILT, 2, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_UTILT, 2, HG_HIT_SFX, asset_get("sfx_blow_weak2"));
 set_hitbox_value(AT_UTILT, 2, HG_ANGLE_FLIPPER, 4);
-
-set_hitbox_value(AT_UTILT, 2, HG_MUNO_HITBOX_MISC_ADD, "In the original release of Sandbert, this hitbox never appears because its height is set to 0.");

@@ -1,4 +1,3 @@
-
 set_attack_value(AT_USPECIAL, AG_CATEGORY, 2);
 set_attack_value(AT_USPECIAL, AG_SPRITE, sprite_get("uspecial"));
 set_attack_value(AT_USPECIAL, AG_NUM_WINDOWS, 3);
@@ -109,10 +108,3 @@ set_hitbox_value(AT_USPECIAL, 5, HG_VISUAL_EFFECT, 3);
 set_hitbox_value(AT_USPECIAL, 5, HG_HIT_SFX, asset_get("sfx_forsburn_reappear_hit"));
 set_hitbox_value(AT_USPECIAL, 5, HG_ANGLE_FLIPPER, 1);
 set_hitbox_value(AT_USPECIAL, 1, HG_HITBOX_GROUP, -1);
-
-
-
-set_attack_value(AT_USPECIAL, AG_MUNO_ATTACK_MISC_ADD, "Flight loop lasts up to " + string(get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH) * 11) + " frames. Canceling endlag lasts " + string(get_window_value(AT_USPECIAL, 3, AG_WINDOW_LENGTH)) + " frames. Duration measured by immediately performing the launcher attack. Launcher active frames measured from point when button is pressed. Endlag measured after launcher hit.");
-set_attack_value(AT_USPECIAL, AG_MUNO_ATTACK_ENDLAG, string(get_window_value(AT_USPECIAL, 6, AG_WINDOW_LENGTH)));
-set_hitbox_value(AT_USPECIAL, 5, HG_MUNO_HITBOX_ACTIVE, "4-13");
-

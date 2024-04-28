@@ -1,0 +1,12 @@
+sprite_index = sprite_get("ustrong_art");
+mask_index = sprite_get("ustrong_art");
+article_anim_speed = .5;
+anim_counter = 60;
+damm = 25;
+uses_shader = true;
+should_die = false;
+ignores_walls = false;
+can_be_grounded = true;
+article_friction = 0.1;
+article_gravity = 0.5;
+article_max_fall_speed = 12;
