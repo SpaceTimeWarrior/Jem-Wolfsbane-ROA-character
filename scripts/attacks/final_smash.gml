@@ -57,4 +57,4 @@ set_hitbox_value(49, 1, HG_HIT_SFX, asset_get("sfx_absa_singlezap1"));
 set_hitbox_value(49, 1, HG_ANGLE_FLIPPER, 6);
 set_hitbox_value(49, 1, HG_TECHABLE, 1);
 
-set_attack_value(49, AG_MUNO_ATTACK_MISC_ADD, this is the final smash version of DSpecial the recoil damge is 100 rather than 200);
+set_attack_value(49, AG_MUNO_ATTACK_MISC_ADD, "this is the final smash version of DSpecial the recoil damge is 100 rather than 200");

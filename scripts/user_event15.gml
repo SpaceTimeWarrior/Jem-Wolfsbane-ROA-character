@@ -343,6 +343,28 @@ in a Patch.
 
 
 // Recommended template for non-Sandbert characters (delete the other patches):
+initPatch("1.2","29 april,2024");
+initHeader("sprite changes");
+initSection("changed most of the dodge states to have more frames and less rugged pixels");
+initSection("changed the taunt (the old file was renamed to taunt_old if anyone still wants it)");
+initSection("cleaned up the win portrait");
+initSection("changed the colors.gml to have similar colors grouped to fit better");
+initPatch("1.1","28 april,2024");
+initSection("Fixed bug in user event 15 in which the munophone connects to");
+initPatch("1.0","28 april,2024");
+initHeader("FULL RELEASE");
+initSection("did minor balancing to all attacks");
+initHeader("added compatability");
+initSection("feri compatability-costume");
+initSection("another kirby compatability");
+initSection("abyss hime compatability-death sprite added");
+initSection("dracula boss intro compatability-lore added");
+initSection("miiverse compatability added");
+initSection("rat compatability added");
+initSection("soulbound conflict compatability");
+initSection("the chosen one compatability");
+initSection("so-sorry compatability");
+
 initPatch("0.7","27 april,2024");
 initHeader("added compatability");
 initSection("added Hikaru compatablity:the title changes depending on the number of attacks jem has taken... if under 500 hits it uses mod 5 0=Lunar Princess, Hikaru,1=Multiverse Defender Hikaru,2=Twilight Flame, Hikaru , 3=wolfcat kitsune, Hikaru 4=Etherian Queen, Hikaru, default= ERROR, Hikaru ,if 500+ bloodthirsty, Hikaru");
