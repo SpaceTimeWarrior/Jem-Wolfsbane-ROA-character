@@ -68,12 +68,13 @@ sprite_change_offset("phone_open", 32, 64);
 sprite_change_offset("plat", 96, 16);
 //projectiles
 sprite_change_offset("water_proj", 40, 38);
+sprite_change_offset("fire_proj",40,38);
 //articles
 sprite_change_offset("flame_orb",22,54);
 
 //intermod compatability
 sprite_change_offset("jem_hug",48,49);//amber
 sprite_change_offset("amber_hug",88,66);//amber
-sprite_change_offset("feri_costume_jem", 84, 114);//feri
+sprite_change_offset("feri_costume_jem", 41, 73);//feri
 sprite_change_offset("death",16,49);//abyss hime
 sprite_change_offset("mv",60, 30);//miiverse

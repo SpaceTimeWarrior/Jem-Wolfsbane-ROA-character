@@ -7,7 +7,8 @@ try{
 if(coli !=noone){
 	if(coli!=player_id){
 		print_debug(string(coli)+":"+string(platform_timer));
-		if(platform_timer%15==0){
+		if(platform_timer%30==0){
+			//spawn_hit_fx( coli.x, coli.y, HFX_ZET_FIRE_BIG);
 			var sp_ID = instance_create(player_id.x,player_id.y,"obj_article1");
 			sp_ID.player_id = player_id;
 			sp_ID.sp_track_id = player_id;

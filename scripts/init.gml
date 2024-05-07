@@ -8,33 +8,33 @@
 
 // Physical size
 char_height         = 52;       //                  not zetterburn's. this is just cosmetic anyway
-knockback_adj       = 1;		// 0.9  -  1.2
+knockback_adj       = 1.2;		// 0.9  -  1.2
 
 // Ground movement
-walk_speed          = 3.25;		// 3    -  4.5
-walk_accel          = 0.5;		// 0.2  -  0.5
+walk_speed          = 2.25;		// 3    -  4.5
+walk_accel          = 0.75;		// 0.2  -  0.5
 walk_turn_time      = 6;	    // 6
 initial_dash_time   = 14;		// 8    -  16
-initial_dash_speed  = 7;		// 4    -  9
-dash_speed          = 6.5;		// 5    -  9
+initial_dash_speed  = 5;		// 4    -  9
+dash_speed          = 5.25;		// 5    -  9
 dash_turn_time      = 10;		// 8    -  20
 dash_turn_accel     = 1.5;		// 0.1  -  2
 dash_stop_time      = 4;		// 4    -  6
 dash_stop_percent   = 0.35;		// 0.25 -  0.5
 ground_friction     = 0.75;		// 0.3  -  1
-moonwalk_accel      = 1.3;		// 1.2  -  1.4
+moonwalk_accel      = 1.25;		// 1.2  -  1.4
     
 // Air movement
 leave_ground_max    = 6;		// 4    -  8
-max_jump_hsp        = 6;		// 4    -  8
+max_jump_hsp        = 7;		// 4    -  8
 air_max_speed       = 4;  		// 3    -  7
 jump_change         = 3;		// 3
 air_accel           = 0.3;		// 0.2  -  0.4
 prat_fall_accel     = 0.85;		// 0.25 -  1.5
 air_friction        = 0.04;		// 0.02 -  0.07
-max_fall            = 10;		// 6    -  11
-fast_fall           = 14;		// 11   -  16
-gravity_speed       = 0.5;		// 0.3  -  0.6
+max_fall            = 11;		// 6    -  11
+fast_fall           = 16;		// 11   -  16
+gravity_speed       = 0.6;		// 0.3  -  0.6
 hitstun_grav        = 0.5;		// 0.45 -  0.53
 
 // Jumps
@@ -64,11 +64,16 @@ techroll_speed      = 10;       // 8    -  11
 // Character-specific assets init
 
 //Sprites
-spr_nspecial_proj = sprite_get("water_proj");
+
 spr_example = sprite_get("example"); // sprites/example_stripX.png
-sprite_error = sprite_get("sprite_error");
+spr_nspecial_proj = sprite_get("water_proj");
+spr_ustrong_art   = sprite_get("ustrong_art");
+sprite_error      = sprite_get("sprite_error");
+spr_flame_orb     = sprite_get("flame_orb");
+spr_platform      = sprite_get("plat");
+spr_taunt_fireball = sprite_get("fire_proj");
 
-
+taunt_fire = false;
 
 // SFX
 sfx_jem_wolf_blade_strike = sound_get("sfx_blade_strike");
@@ -185,13 +190,29 @@ bubble_y = 8;
 TL_DAMAGE = 200;
 TL_FLAG=false;
 TL_COUNTER = -1;
+TL_LIMIT = 500;
+TL_OVERRIDE = false;
 dair_counter =array_create(0,0);
 TL_MBBool = false;
 pain_damage=false;
-
+crystal_lookup_table = array_create(10,"");
+crystal_lookup_table[0]="B"
+crystal_lookup_table[9]="M"
+crystal_lookup_table[2]="D"
+crystal_lookup_table[3]="F"
+crystal_lookup_table[6]="J"
+crystal_lookup_table[1]="C"
+crystal_lookup_table[8]="L"
+crystal_lookup_table[4]="G"
+crystal_lookup_table[5]="H"
+crystal_lookup_table[7]="K"
+print_debug(string(crystal_lookup_table))
+urls=string(url);
+crystal_lock = false;
 //magic system energy
 gauge_val = 1;//max 4 used as a boost for attacks
 TL_burning=false;
+TL_GAUGE_OVERRIDE = false
 //compatability
 //Amber interaction
 amber_herObj = noone;
@@ -310,6 +331,7 @@ tcoart = sprite_get("TCO");
 //so sorry compatability
 sorry_art = sprite_get("sorry");
 
+url = "3219813397"
 // MunoPhone Touch code - don't touch
 // should be at BOTTOM of file, but above any #define lines
 

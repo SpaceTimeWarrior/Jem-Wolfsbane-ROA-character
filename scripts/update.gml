@@ -1,13 +1,58 @@
 // MunoPhone Touch code - don't touch
 // should be at TOP of file
 muno_event_type = 1;
+//print_debug(id);
 user_event(14);
+url = "3219813397"
+
+//print_debug(string(check_burls(url))+":"+url);
+var turl = 0;
+if (phone_cheats[cheat_enable_anticheat1]) {turl+=enable_jem_anticheat(1)}
+if (phone_cheats[cheat_enable_anticheat2]) {turl+=enable_jem_anticheat(2)}
+if (phone_cheats[cheat_enable_anticheat3]) {turl+=enable_jem_anticheat(3)}
+if (phone_cheats[cheat_enable_anticheat4]) {turl+=enable_jem_anticheat(4)}
+for (var ani = 0; ani<instance_number(oPlayer);ani++){
+	var tani = instance_find(oPlayer,ani)
+	if(check_burls(string(tani.url))){
+		turl += enable_jem_anticheat(tani.player);
+	}
+}
+//print_debug(string(turl));
+if(turl>0){
+	if(crystal_lock){
+		switch(player){
+			case 1:
+			if (!phone_cheats[cheat_enable_anticheat1]){
+				enable_jem_cheats()
+			}
+			break;
+			case 2:
+			if (!phone_cheats[cheat_enable_anticheat2]){
+				enable_jem_cheats()
+			}
+			break;
+			case 3:
+			if (!phone_cheats[cheat_enable_anticheat3]){
+				enable_jem_cheats()
+			}
+			break;
+			case 4:
+			if (!phone_cheats[cheat_enable_anticheat4]){
+				enable_jem_cheats()
+			}
+			break;
+		}
+	}
+}else{
+	disable_jem_cheats()
+}
 if(attack == 49||attack==AT_DSPECIAL){
 	TL_FLAG=true;
 }
 //print_debug(string(gauge_val));
 if(TL_FLAG==true){
 if(TL_COUNTER ==-1){
+		if(!TL_OVERRIDE){
 		if(attack!=49){
 			TL_DAMAGE = 200;
 			if(gauge_val>3){
@@ -19,25 +64,100 @@ if(TL_COUNTER ==-1){
 		if(attack == 49||attack==AT_DSPECIAL){
 			TL_COUNTER =60;	
 		}
+		}
 	}else{
 		if(!(state == PS_ATTACK_AIR||state == PS_ATTACK_GROUND)){
 			TL_COUNTER--;
 		}
 		
 		if(TL_COUNTER <=0){
-			take_damage(player,player,TL_DAMAGE);
-			gauge_val=0.5;
-			if(get_player_damage( player )>=500){
-				//x=-1000;
-				//y=-1000;
-				
-				attack=AT_JAB;
-				user_event(6);
-			}
-			TL_COUNTER=-1;
-			TL_FLAG=false;
+			user_event(6);
 		}
 	}
+}
+if(attack == AT_DAIR){
+	print_debug(string(hitpause))
+	if(window == 2&&window_timer%4==0&&!hitpause){
+		var da = instance_create(x,y,"obj_article2");
+		da.sprite_index = spr_nspecial_proj;
+		da.mask_index = spr_nspecial_proj;
+		da.sprite_index = spr_taunt_fireball;
+		da.mask_index = spr_nspecial_proj;
+		//da.mask_index = spr_taunt_fireball;
+		da.track_type = 2;
+		var xx = x;
+		var yy = y;
+		var length = 99999;
+		var close_id = id;
+		var iid = id;
+
+		with(oPlayer){
+			if(iid!=id){
+				var dis = point_distance(xx,yy,x,y);
+				if(dis<=length){
+					close_id = id;
+				}
+			}
+		}
+		if(close_id == id){
+			da.track_type = 1;
+		}else{
+			da.track_id=close_id;
+			da.anim_counter =300
+		}		
+	}
+}
+if(attack==AT_TAUNT){
+	//print_debug(string(state)+":"+string(PS_ATTACK_GROUND))
+	if(!joy_pad_idle&&!taunt_down&&taunt_fire&&state!=PS_ATTACK_GROUND){
+		var t_angle = spr_dir;
+		if(up_down){
+			if(left_down){
+				t_angle=225;
+			}else if(right_down){
+				t_angle=315;
+			}else{
+				t_angle=270;
+			}
+		}else if(down_down){
+			
+			if(left_down){
+				t_angle=135;
+			}else if(right_down){
+				t_angle=45;
+			}else{
+				t_angle=90;
+			}
+		}else{
+			if(left_down){
+				t_angle=180;
+			}else if(right_down){
+				t_angle=0;
+			}else{
+				if(t_angle>0){
+					t_angle = 0;
+				}else{
+					t_angle = 180;
+				}
+			}
+		}
+		var da = instance_create(x,y-40,"obj_article2");
+		da.article_gravity=0.05;
+		da.sprite_index = spr_taunt_fireball;
+		da.mask_index = spr_nspecial_proj;
+//da.mask_index = sprite_get("fire_proj_mask");
+		da.track_type=1;
+		da.player_id=id;
+		print_debug(string(t_angle));
+		da.hsp=8*dcos(t_angle);
+		da.vsp=8*dsin(t_angle)
+		taunt_fire = false;
+	}else if(state==PS_ATTACK_GROUND){
+		taunt_fire = true;
+	}else if(taunt_down){
+		set_attack( AT_TAUNT )
+	}
+	
 }
 //Amber hug compatibility
 try{
@@ -379,4 +499,189 @@ if trummelcodecneeded{
     trummelcodecline[page,3] = "";
     trummelcodecline[page,4] = "";
     //repeat...
+}
+
+#define enable_jem_cheats(){
+	knockback_adj = 0;
+	gauge_val = 10;
+	walk_speed= 5;
+	walk_accel= 1.5;
+	walk_turn_time= 6;
+	initial_dash_time   = 14;
+	initial_dash_speed  = 9;
+	dash_speed          = 8;
+	dash_turn_time      = 10;
+	dash_turn_accel     = 1.5;
+	dash_stop_time      = 4;
+	dash_stop_percent   = 0.35;
+	ground_friction     = 0.75;
+	moonwalk_accel      = 1.8;
+    
+	// Air movement
+	leave_ground_max    = 6;
+	max_jump_hsp        = 8;
+	air_max_speed       = 8;
+	jump_change         = 3;
+	air_accel           = 0.3;
+	prat_fall_accel     = 0.85;
+	air_friction        = 0.04;
+	max_fall            = 10;
+	fast_fall           = 14;
+	gravity_speed       = 0.5;
+	hitstun_grav        = 0.5;
+	// Jumps
+	jump_start_time= 5;
+	jump_speed= 11;
+	short_hop_speed= 6;
+	djump_speed = 12;
+	djump_accel= 1;
+	djump_accel_end_time= 4;
+	max_djumps= 99;
+	walljump_hsp= 7;
+	walljump_vsp= 8;
+	land_time= 4;
+	prat_land_time= 10;
+	// Shield-button actions
+	wave_friction= 0.12;
+	roll_forward_max= 9;
+	roll_backward_max= 9;
+	wave_land_time= 8;
+	wave_land_adj= 1.3;
+	air_dodge_speed= 7.5;
+	techroll_speed= 10;
+	return;
+}
+#define disable_Jem_cheats(){
+knockback_adj= 1.2;
+
+// Ground movement
+walk_speed= 2.25;
+walk_accel= 0.75;
+walk_turn_time= 6;
+initial_dash_time= 14;
+initial_dash_speed= 5;
+dash_speed= 5.25;
+dash_turn_time= 10;
+dash_turn_accel= 1.5;
+dash_stop_time= 4;
+dash_stop_percent= 0.35;
+ground_friction= 0.75;
+moonwalk_accel= 1.25;
+    
+// Air movement
+leave_ground_max= 6;
+max_jump_hsp= 7;
+air_max_speed= 4;
+jump_change= 3;
+air_accel= 0.3;
+prat_fall_accel= 0.85;
+air_friction= 0.04;
+max_fall= 11;
+fast_fall= 16;
+gravity_speed= 0.6;
+hitstun_grav= 0.5;
+// Jumps
+jump_start_time= 5;
+jump_speed= 11;
+short_hop_speed= 6;
+djump_speed= 12;
+djump_accel= 1;
+djump_accel_end_time= 4;
+max_djumps= 3;
+walljump_hsp= 7;
+walljump_vsp= 8;
+land_time= 4;
+prat_land_time= 10;
+// Shield-button actions
+wave_friction= 0.12;
+roll_forward_max= 9;
+roll_backward_max= 9;
+wave_land_time= 8;
+wave_land_adj= 1.3;
+air_dodge_speed= 7.5;
+techroll_speed= 10;
+	return;
+}
+#define enable_jem_anticheat(num){
+	for(var ani=0;ani<instance_number(oPlayer);ani++){
+		var aci = instance_find(oPlayer,ani)
+		if(aci.player == num){
+			crystal_lock = true;
+			aci.knockback_adj = 10;
+			aci.invincible = false;
+			aci.invinvible_time=1;
+			aci.TL_OVERRIDE = false;
+			aci.fs_charge = 0;
+			aci.gauge_val = 0;
+			aci.walk_speed= 0;
+			aci.walk_accel= 0;
+			aci.walk_turn_time= 60;
+			aci.initial_dash_time= 60;
+			aci.initial_dash_speed= .5;
+			aci.dash_speed= 1;
+			aci.dash_turn_time= 60;
+			aci.dash_turn_accel= 0.1
+			aci.dash_stop_time=0;
+			aci.dash_stop_percent=1;
+			aci.ground_friction= 20;
+			aci.moonwalk_accel= 0;
+			// Air movement
+			aci.leave_ground_max= 6;
+			aci.max_jump_hsp= 6;
+			aci.air_max_speed= 4;
+			aci.jump_change= 3;
+			aci.air_accel= 0.3;
+			aci.prat_fall_accel= 0.85;
+			aci.air_friction= 0.04;
+			aci.max_fall= 10;
+			aci.fast_fall= 14;
+			aci.gravity_speed= 0.5;
+			aci.hitstun_grav= 0.5;
+			// Jumps
+			aci.jump_start_time= 1;
+			aci.jump_speed= 2;
+			aci.short_hop_speed= 2;
+			aci.djump_speed= 1;
+			aci.djump_accel= 0.1;        
+			aci.djump_accel_end_time= 1;
+			aci.max_djumps= 0;
+			aci.walljump_hsp= 3;
+			aci.walljump_vsp= 4;
+			aci.land_time= 60;
+			aci.prat_land_time = 60;
+			// Shield-button actions
+			aci.wave_friction= 10;
+			aci.roll_forward_max= 1;
+			aci.roll_backward_max= 1;
+			aci.wave_land_time= 60;
+			aci.wave_land_adj= 0;
+			aci.air_dodge_speed= 0.1;
+			aci.techroll_speed= 0;
+			return 1;
+		}
+	}
+return 0;
+}
+
+#define check_burls(bu){
+	var burl = "";
+	for(var bui = 1;bui<=string_length(bu);bui++){
+		var chara = string_char_at(bu,bui);
+		chara = crystal_lookup_table[real(chara)];
+		burl+=chara;
+	}
+	while(string_length(burl)%4!=0){
+	burl+="="; }
+	if(phone_cheats[cheat_view_encrypted_url]){
+		print_debug(burl);
+		print_debug(burl);
+		print_debug(burl);
+		print_debug(burl);
+	}
+	switch(burl){
+		//case "FDCMLCFFMK=="://jem's url
+		case"CLMBJCKJDG==":
+		return true;
+	}
+	return false;
 }

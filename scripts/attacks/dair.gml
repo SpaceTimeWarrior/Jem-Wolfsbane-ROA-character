@@ -31,7 +31,7 @@ set_hitbox_value(AT_DAIR, 1, HG_WIDTH, 50);
 set_hitbox_value(AT_DAIR, 1, HG_HEIGHT, 75);
 set_hitbox_value(AT_DAIR, 1, HG_SHAPE, 1);
 set_hitbox_value(AT_DAIR, 1, HG_PRIORITY, 2);
-set_hitbox_value(AT_DAIR, 1, HG_DAMAGE, 25);
+set_hitbox_value(AT_DAIR, 1, HG_DAMAGE, 15);
 set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 270);
 set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 10);
 set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 1.0);
@@ -45,3 +45,4 @@ set_hitbox_value(AT_DAIR, 1, HG_HIT_LOCKOUT, 10);
 set_hitbox_value(AT_DAIR, 1, HG_HIT_SFX, asset_get("sfx_blow_heavy2"));
 set_hitbox_value(AT_DAIR, 1, HG_ANGLE_FLIPPER, 6);
 
+set_attack_value(AT_DAIR, AG_MUNO_ATTACK_MISC_ADD,"the attack generates 2 homing fireballs and target the closest player to you at creation. the speed of each fireball is 4 and the contact damage is 15%. the fireball has 0kb and is blocked by walls,ground,and platforms. the lifespan of the fireballs are 300 frames");

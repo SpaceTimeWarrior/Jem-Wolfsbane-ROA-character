@@ -195,6 +195,9 @@ initWords("you might be asking how do I gain this engergy. this is simple hit ot
 initWords("you lose energy when you are parried, if you take damage or if you used a non neutral special attack below is a list of special rule(s) with special attacks");
 initWords("Dspecial:Temporal light-you take less burn damage on the first iteration if your multiplier is at least 3x. but afterword like most special attacks it puts it down to 0.05x but unlike the specials it is on first damage iteration rather than when it hits a player.");
 
+initTip("TAUNT: Firey taunt");
+initWords("taunt the enemy while creating a fireball. if a direction is held at the end of the taunt jem will fling the fireball at high velocity in that direction. the fireball does 15% on impact but is blocked by walls and ground/platforms")
+
 initTip("JAB: FireSword Jab");
 initWords("does two slices up and down as well as a fire at the tip");
 initImage_ext(sprite_get("jab"), -4, fa_center, 1, 1, true, c_white,1, false,noone, noone, noone, noone);
@@ -204,7 +207,7 @@ initWords("create a circle of fireballs that grow into a large one than go back 
 initImage_ext(sprite_get("bair"), -4, fa_center, 1, 1, true, c_white,1, false,noone, noone, noone, noone);
 
 initTip("DAIR: heat crash");
-initWords("jem transforms into a flaming spiral and summons fireballs as she falls(fireballs are unavailable, this was abandoned, tried via hitbox grid,and by articles(seriously who adda a array push but no way to undo it.also the documentation is so out of date for GM functions it isn't available))");
+initWords("jem transforms into a flaming spiral and summons fireballs as she falls. these fireballs do 15 damage and home in toward the closest player. note they are blocked by walls,ground and platforms");
 initImage_ext(sprite_get("dair"), -4, fa_center, 1, 1, true, c_white,1, false,noone, noone, noone, noone);
 
 initTip("DATTACK: stone punch dash");
@@ -212,7 +215,7 @@ initWords("while sliding jem uses earth magic to create a fist out of the ground
 initImage_ext(sprite_get("dattack"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 
 initTip("DSPECIAL/FINAL SMASH: Temporal Light");
-initWords("create a orb of light that anyone caught inside other than the player is launched at 500% the player(activator) also takes damage at 200% and if the activator where to surpass 500% it is a automatic loss of a stock but is counted after the attack is finished) if the player where to use the final smash however, the damage to the activator is 50%. the damage radius is similar to claren's energy ball. this attack is to only be used as a last resort. in addition must do a different attack or will continually take damage as the light is torturing jem.");
+initWords("create a orb of light that anyone caught inside other than the player is launched at 350% the player(activator) also takes damage at 200% and if the activator where to surpass 500% it is a automatic loss of a stock but is counted after the attack is finished) if the player where to use the final smash however, the damage to the activator is 50%. the damage radius is similar to claren's energy ball. this attack is to only be used as a last resort. in addition must do a different attack or will continually take damage as the light is torturing jem.");
 initImage_ext(sprite_get("dspecial"), -4, fa_center, 1, 1, true, c_white, 1, false, noone, noone, noone, noone);
 
 initTip("DSTRONG: Fire Ring Compression");
@@ -343,6 +346,31 @@ in a Patch.
 
 
 // Recommended template for non-Sandbert characters (delete the other patches):
+initPatch("1.7","4 may,2024");
+initHeader("reballanced the character")
+initSection("changed movement speed and acceleration")
+initSection("decreased the damage and knockback Dspecial deals (self damage is still the same and the final smash version is unchanged)");
+initSection("decreased the damage Dair deals")
+initSection("fixed a bug that in which hitpause was not taken into account in the down air attack where instead of doing 2 fireballs it did 10.");
+initSection("");
+initSection("");
+initHeader("ideas that was thaught about but decided against it");
+initSection("doing 5% self damage for everytime she hits a enemy. (shockingly this is can be more deadly to jem than the person she is hitting especially if the magic gauge is low. this is a overcorrection [jab damage delt 10*.05<1 thus it is rounded to 1% the difference is added/subtracted in the hit_player.gml and Dspecial pre nerf 500*.05=25% but the self damage is considerably higher at 205+200DPS%])");
+initSection("");
+initSection("reducing Dspecial to below 100. (this was rejected as that is the whole point of the attack. this is designed as a high risk, high reward attack... if you look at the lore it is supposed to kill those she attacked. since jem doesn't have enough magic to cast it without the spell taking random organs this is shown by the self damage.[this would make the maximum damage done with a max magic gauge = 400% self damage is 100+200DPS% the only drawback is that would take a long time to get this high of a gauge. the reason why is if the gauge is 3/4 full there is a 100% is reduced from the self damage])");
+initSection("");
+initSection("changing Dspecial to something else(The issue is I can't think of a suitable replacement. if you have any ideas please don't hesitate to put it in the Suggestions/compatability request descussion.[even if I don't use it for jem I may use it for other characters from the same series]. what is in the articles is 1:entirely visual elements. 2: projectile articles 3:unused. ground: only munophone uses this.(but is independent) so unused. platform: used in the Fspecial attack)")
+initPatch("1.6","4 may,2024");
+initSection("fixed the Down air attack to do create homing fireballs");
+initSection("added if a direction is held at the end of her taunt it would generate a fireball in the direction(in increments of 45 degrees) this is also at high speed");
+initSection("both attacks that use fireballs damage at 15% and are blocked by platforms/ground")
+initPatch("1.5","2 may,2024");
+initSection("fixed compatability sprites")
+initPatch("1.4","1 may,2024");
+initSection("changed the preview of the character to be more accurate to the original game's color schemes for the starship Jem is in. This is her personal ship the intrepid flyer");
+initSection("(the old one is still in the character folderbut with the _old added to the name)");
+initPatch("1.3","30 april,2024");
+initSection("made Jem's DSpecial more modifiable via other mods")
 initPatch("1.2","29 april,2024");
 initHeader("sprite changes");
 initSection("changed most of the dodge states to have more frames and less rugged pixels");
@@ -480,7 +508,11 @@ zero".
 cheat_perma_final_smash = initCheat("Infinate Final Smash", [0, 1], ["Off", "On"], "Final Smash is always charged.");
 cheat_maximum_magic = initCheat("infinate magic", [0, 1], ["Off", "On"], "Magic boost gauge is always filled");
 cheat_magic_double = initCheat("double magic", [0, 1], ["Off", "On"], "doubles the magic damage from the Magic boost");
-
+cheat_enable_anticheat1 = initCheat("anticheat slot 1",[0,1],["Off","On"],"activates the anticheat on slot 1");
+cheat_enable_anticheat2 = initCheat("anticheat slot 2",[0,1],["Off","On"],"activates the anticheat on slot 2");
+cheat_enable_anticheat3 = initCheat("anticheat slot 3",[0,1],["Off","On"],"activates the anticheat on slot 3");
+cheat_enable_anticheat4 = initCheat("anticheat slot 4",[0,1],["Off","On"],"activates the anticheat on slot 4");
+cheat_view_encrypted_url = initCheat("view encrypted url data",[0,1],["Off","On"],"prints the encrypted url to console")
 
 
 /*
@@ -661,6 +693,7 @@ spr_custom_trummel_color=c_purple;
     initCodecPage(SPK_TRUM,7,0,"what does she mean by that");
     initCodecPage(SPK_ALTO,0,0,"she has limited ability to use teleportation magic.she can can teleport small objects or one large one. though her");
     initCodecPage(SPK_ALTO,0,0,"preference is fire magic");
+    initCodecPage(SPK_JEM,0,GIM_COLOR,"(internal thoughts) maybe I should bring Flare and my child...nevermind that could be problematic");
 }catch(e){
 	print_debug(string(e));
 }
@@ -675,7 +708,7 @@ otto_bobblebody_sprite = sprite_get("_pho_example_bobble_body");
 steve_death_message = "You may not rest now there are monsters nearby...oh wait nevermind";
 
 // Link spear. (determines which spear your char will drop the first time)
-link_spear_drop = 5;
+link_spear_drop = 5;//flamespear
 
 /*
 Spear IDs:

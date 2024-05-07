@@ -1,5 +1,6 @@
 // hit_player is a script that runs code when you hit an enemy player.
 var dama = 5;
+//take_damage(player,-1,5);
 switch(attack){
 	case AT_BAIR:
 	dama=15;
@@ -10,9 +11,11 @@ switch(attack){
 	case AT_DATTACK:
 	dama=6;
 	break;
-	case AT_DSPECIAL:
 	case 49:
 	dama=500;
+	break;
+	case AT_DSPECIAL:
+	dama=350;
 	break;
 	case AT_DSTRONG:
 	dama=14;
