@@ -16,10 +16,15 @@ age: 25
 Birthday: September 20th
 
 parents: Garnet Wolfsbane, Pearlite Wolfsbane
+
 allies: Ember Burnfeather, Cay nigh,Dark Lightsbane
+
 sibling: Brier Wolfsbane
+
 Favorite food: Pizza, with a cheese sauce, black olives, and mushrooms, and bacon
+
 likes: old starships, electronics, projectile magic (though she will not admit it), video games.
+
 dislikes: theft, mind control, (she is uneasy with AI, but it is for the first reason and it ofthen makes mistakes otherwise she thinks it is a good thing), her sister.
 
 Story
